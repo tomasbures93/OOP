@@ -56,13 +56,7 @@ namespace Klassen___Radio.Module
 
         public bool IstAn()
         {
-            if(_Eingeschaltet == false)
-            {
-                return false;
-            } else
-            {
-                return true;
-            }
+            return _Eingeschaltet;
         }
         
         public void WahleSender(double neueFrequenz)
