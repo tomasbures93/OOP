@@ -13,6 +13,7 @@ namespace Klassen___Wurfelspiel
         {
             do
             {
+                Console.WriteLine($"-- Würfelspiel\n");
                 Console.WriteLine("Player1 name: ");
                 string playerName = Console.ReadLine();
                 Player player1 = new Player(playerName);
@@ -20,16 +21,14 @@ namespace Klassen___Wurfelspiel
                 playerName = Console.ReadLine();
                 Player player2 = new Player(playerName);
 
-                Console.WriteLine($"-- Würfelspiel\n");
-                Console.WriteLine($"{player1.GetName()} vs {player2.GetName()}");
+                Console.WriteLine($"\n{player1.GetName()} vs {player2.GetName()}");
                 Console.WriteLine("Press Enter to play!");
                 Console.ReadKey();
 
-                Console.WriteLine("\nPlayer 1 is Playing");
+                Console.WriteLine($"\n{player1.GetName()} is Playing");
                 player1.Gamble();
-                Console.WriteLine("\nPlayer 2 is Playing");
+                Console.WriteLine($"\n{player2.GetName()} is Playing");
                 player2.Gamble();
-
                 Console.WriteLine("\nPress enter to see the score");
                 Console.ReadKey();
 
