@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP", "OOP\OOP.csproj", "{F3DA3421-2B1F-4044-9B7F-439902565BC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP - Klassen", "OOP\OOP - Klassen.csproj", "{F3DA3421-2B1F-4044-9B7F-439902565BC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Radio", "Klassen - Radio\Klassen - Radio.csproj", "{A13E582D-3937-406A-9AB2-5016F5E4BD23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F3DA3421-2B1F-4044-9B7F-439902565BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DA3421-2B1F-4044-9B7F-439902565BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DA3421-2B1F-4044-9B7F-439902565BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13E582D-3937-406A-9AB2-5016F5E4BD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13E582D-3937-406A-9AB2-5016F5E4BD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13E582D-3937-406A-9AB2-5016F5E4BD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13E582D-3937-406A-9AB2-5016F5E4BD23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

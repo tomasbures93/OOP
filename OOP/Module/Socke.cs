@@ -9,36 +9,38 @@ namespace OOP.Module
 {
     internal class Socke
     {
-        public string Farbe;
-        public bool Trocken;
-        public bool Sauber;
+        private string _Farbe;
+        private bool _Trocken;
+        private bool _Sauber;
 
         public Socke(string farbe, bool trocken, bool sauber)
         {
-            Farbe = farbe;
-            Trocken = trocken;
-            Sauber = sauber;
+            _Farbe = farbe;
+            _Trocken = trocken;
+            _Sauber = sauber;
         }
 
         public void Trockne()
         {
-            if(Trocken == true)
+            if(_Trocken == true)
             {
-                Trocken = false;        // nicht trocken
-            } else
+                _Trocken = false;        // nicht trocken
+            } 
+            else
             {
-                Trocken = true;         // Trocken
+                _Trocken = true;         // Trocken
             }
         }
 
         public void Wasche() 
         { 
-            if(Sauber == true)
+            if(_Sauber == true)
             {
-                Sauber = false;         // nicht sauber
-            } else
+                _Sauber = false;         // nicht sauber
+            } 
+            else
             {
-                Sauber = true;          // sauber
+                _Sauber = true;          // sauber
             }
         }
 
@@ -46,21 +48,23 @@ namespace OOP.Module
         {
             string statusTrocken;
             string statusSauber;
-            if (Trocken == true)
+            if (_Trocken == true)
             {
                 statusTrocken = "ist";
-            } else
+            } 
+            else
             {
                 statusTrocken = "ist nicht";
             }
-            if(Sauber == true)
+            if(_Sauber == true)
             {
                 statusSauber = "ist";
-            } else
+            } 
+            else
             {
                 statusSauber = "ist nicht";
             }
-            Console.WriteLine($"Die Socken mit der Farbe {Farbe} {statusTrocken} trocken und {statusSauber} sauber.");
+            Console.WriteLine($"Die Socken mit der Farbe {_Farbe} {statusTrocken} trocken und {statusSauber} sauber.");
         }
     }
 }
