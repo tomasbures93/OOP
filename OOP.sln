@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Sparschwein", "Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Wurfelspiel", "Klassen - Wurfelspiel\Klassen - Wurfelspiel.csproj", "{A4C9F98F-09DC-4123-9852-C923CA1C62C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Bruchrechnung", "Klassen - Bruchrechnung\Klassen - Bruchrechnung.csproj", "{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A4C9F98F-09DC-4123-9852-C923CA1C62C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4C9F98F-09DC-4123-9852-C923CA1C62C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4C9F98F-09DC-4123-9852-C923CA1C62C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
