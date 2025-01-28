@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Wurfelspiel", "Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Bruchrechnung", "Klassen - Bruchrechnung\Klassen - Bruchrechnung.csproj", "{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Personen aus datei Lesen", "Klassen - Personen aus datei Lesen\Klassen - Personen aus datei Lesen.csproj", "{211830F6-EA2E-46C2-959C-E5A584F872A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Beziehungen 1", "Klassen - Beziehungen 1\Klassen - Beziehungen 1.csproj", "{4A56A968-A174-4E73-8ACA-0B586AD5560C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41030356-85E5-4A75-9B61-1EE5BDAD1CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{211830F6-EA2E-46C2-959C-E5A584F872A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211830F6-EA2E-46C2-959C-E5A584F872A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211830F6-EA2E-46C2-959C-E5A584F872A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211830F6-EA2E-46C2-959C-E5A584F872A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A56A968-A174-4E73-8ACA-0B586AD5560C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A56A968-A174-4E73-8ACA-0B586AD5560C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A56A968-A174-4E73-8ACA-0B586AD5560C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A56A968-A174-4E73-8ACA-0B586AD5560C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

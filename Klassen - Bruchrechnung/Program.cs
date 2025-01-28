@@ -62,7 +62,7 @@ namespace Klassen___Bruchrechnung
                     }
                     else
                     {
-                        Console.WriteLine("Wrong input - Bitte ziffern benutzen!\n");
+                        Console.WriteLine("Fehler - Wrong input - Bitte ziffern benutzen!\n");
                         Console.ReadKey();
                     }
                 }
@@ -87,7 +87,7 @@ namespace Klassen___Bruchrechnung
                     }
                     else
                     {
-                        Console.WriteLine("Wrong input - Bitte ziffern benutzen!\n");
+                        Console.WriteLine("Fehler - Wrong input - Bitte ziffern benutzen!\n");
                         Console.ReadKey();
                     }
                 }
@@ -98,7 +98,7 @@ namespace Klassen___Bruchrechnung
                 }
             } while (true);
 
-            Console.WriteLine($"\n Ihre Bruche : {bruch1.Ausgabe()} und {bruch2.Ausgabe()}");
+            Console.WriteLine($"\nIhre Bruche : {bruch1.Ausgabe()} und {bruch2.Ausgabe()}");
             Bruch adition = Bruch.Addieren(bruch1, bruch2);
             Console.WriteLine($"{bruch1.Ausgabe()} + {bruch2.Ausgabe()} = {adition.Kurzen().Ausgabe()}");
 
