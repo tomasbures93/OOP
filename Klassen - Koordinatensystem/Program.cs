@@ -11,8 +11,15 @@ namespace Klassen___Koordinatensystem
     {
         static void Main(string[] args)
         {
-            Vektor vektro = new Vektor(new Punkt(2, 21),new Punkt(3, 3));
-            Console.WriteLine(vektro.Lange());
+            Punkt punkt1 = new Punkt(1, 1);
+            Punkt punkt2 = new Punkt(4, 8);
+            Vektor vektor = new Vektor(punkt1, punkt2);
+            Console.WriteLine($"Vektor Berechnung von Punkt {punkt1.PrintPunkt()} und {punkt2.PrintPunkt()} ist {vektor.Lange()} .");
+
+            Kreis kreis = new Kreis(20);
+            Console.WriteLine(kreis.Umfang());
+            Console.WriteLine(kreis.Inhalt());
+            Console.ReadKey();
         }
     }
 }

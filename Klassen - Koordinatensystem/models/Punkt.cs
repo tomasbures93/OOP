@@ -26,5 +26,15 @@ namespace Klassen___Koordinatensystem.models
         {
             return _y;
         }
+
+        public Punkt GetPunk()
+        {
+            return new Punkt(_x, _y);
+        }
+
+        public string PrintPunkt()
+        {
+            return $"| X: {_x} Y: {_y} |";
+        }
     }
 }
