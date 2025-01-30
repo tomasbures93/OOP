@@ -50,7 +50,6 @@ namespace Klassen___Rennschnecken.models
             foreach(Rennschnecke schnecke in _schliste)
             {
                 schnecke.Krieche();
-                Console.WriteLine(schnecke.AusgabeInRace());
             }
         }
 
@@ -102,7 +101,7 @@ namespace Klassen___Rennschnecken.models
                     {
                         Console.SetCursorPosition(schnecke.GetStrecke(), move);
                         Console.WriteLine(schneck);
-                        Console.SetCursorPosition(_lange + 2, move);
+                        Console.SetCursorPosition(_lange, move);
                         Console.WriteLine("| " +schnecke.GetName());
                         schnecke.Krieche();
                         move = move + 2;
@@ -110,17 +109,17 @@ namespace Klassen___Rennschnecken.models
                     move = 2;
                 } else
                 {
-                    Console.Clear();
-                    Console.SetCursorPosition(5, 2);
+                    Console.SetCursorPosition(0, 11);
+                    Console.WriteLine("--------------------------------------------------");
+                    Console.SetCursorPosition(5, 12);
                     Console.WriteLine("!!! FINISH !!! ");
                     Rennschnecke gewinner = ErmittleGewinner();
-                    Console.SetCursorPosition(3, 3);
+                    Console.SetCursorPosition(3, 13);
                     Console.WriteLine("Winner: " + gewinner.GetName());
+                    Console.SetCursorPosition(0, 14);
+                    Console.WriteLine("--------------------------------------------------");
                 }
-
             } while(nochrunde);
-            
-
         }
     }
 }

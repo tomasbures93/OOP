@@ -17,19 +17,27 @@ namespace Klassen___Rennschnecken
             Rennschnecke Bober = new Rennschnecke("Bober Kurwa", 5);
             Rennschnecke speed = new Rennschnecke("I am speed", 4);
 
+            
+
             // race
-            Rennen race = new Rennen("Race or die", 4, 35);
+            Rennen race = new Rennen("Race or die", 4, 75);
             race.AddSchnecke(Jeremy);
             race.AddSchnecke(James);
             race.AddSchnecke(Bober);
             race.AddSchnecke(speed);
-            Console.WriteLine("Welcome - Race or die is about to start!\n");
-            Console.WriteLine("Rules: There are no rules!");
-            Console.WriteLine("\nOur racers!\n");
+            Console.WriteLine("\tWelcome - Race or die is about to start!\n");
+            Console.WriteLine("              Snail  |                    Speed");
+            Console.WriteLine("--------------------------------------------------");
             Console.WriteLine(Jeremy.Ausgabe());
             Console.WriteLine(James.Ausgabe());
             Console.WriteLine(Bober.Ausgabe());
             Console.WriteLine(speed.Ausgabe());
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("\n\tWettBüro - Wetten\n");
+            Wettburo Heuer = new Wettburo(race, 3);
+            Heuer.WetteAnnehmen("Jeremy Clarkson", 100, "Harry Potter");
+            Heuer.WetteAnnehmen("Bober Kurwa", 1000, "Tomas");
+            Heuer.Ausgabe();
             Console.WriteLine("\nPress Enter to start the race!");
             Console.ReadKey();
 

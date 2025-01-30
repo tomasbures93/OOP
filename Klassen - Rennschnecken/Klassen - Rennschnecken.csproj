@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="models\Rennen.cs" />
     <Compile Include="models\Rennschnecke.cs" />
+    <Compile Include="models\Wettburo.cs" />
+    <Compile Include="models\Wette.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

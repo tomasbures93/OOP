@@ -45,9 +45,9 @@ namespace Klassen___Rennschnecken.models
 
         public string Ausgabe()
         {
-            return $"Name: {_name} | MaxSpeed: {_maxspeed}";
+            return $"{_name,20} | {_maxspeed,20} mm/h";
         }
-        public string AusgabeInRace()
+        private string AusgabeInRace()
         {
             return $"Name: {_name} | MaxSpeed: {_maxspeed} | Gelaufen : {_strecke}";
         }
