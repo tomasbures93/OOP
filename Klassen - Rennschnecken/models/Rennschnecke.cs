@@ -12,6 +12,13 @@ namespace Klassen___Rennschnecken.models
         private int _maxspeed;
         private int _strecke;
 
+        public Rennschnecke() { }
+
+        public Rennschnecke(string name)
+        {
+            _name = name;
+        }
+
         public Rennschnecke(string name, int maxspeed)
         {
             _name = name;
@@ -29,6 +36,11 @@ namespace Klassen___Rennschnecken.models
         public string GetName()
         {
             return _name;
+        }
+
+        public int GetStrecke()
+        {
+            return _strecke;
         }
 
         public string Ausgabe()

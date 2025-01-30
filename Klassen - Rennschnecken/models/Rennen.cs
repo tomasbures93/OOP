@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Klassen___Rennschnecken.models
 {
@@ -39,9 +40,88 @@ namespace Klassen___Rennschnecken.models
         {
             string namen = "";
             foreach (Rennschnecke e in _schliste) {
-                namen = namen +" "+ e.GetName();
+                namen = namen +", "+ e.GetName();
             }
             return $"Race Name: {_name} | Max Schnecken: {_maxschnecken} | Beteiligte: {namen}";
         }
+
+        private void LasseSchneckenKriechen()
+        {
+            foreach(Rennschnecke schnecke in _schliste)
+            {
+                schnecke.Krieche();
+                Console.WriteLine(schnecke.AusgabeInRace());
+            }
+        }
+
+        public Rennschnecke ErmittleGewinner()
+        {
+            Rennschnecke gewinner = new Rennschnecke();
+            foreach(Rennschnecke schnecke in _schliste)
+            {
+                if(schnecke.GetStrecke() >= _lange)
+                {
+                    gewinner = new Rennschnecke(schnecke.GetName());
+                } 
+            }
+            return gewinner;
+        }
+
+        public void Durchfuhren()
+        {
+            bool nochrunde = true;
+            int move = 2;
+            bool bewegung = false;
+            do
+            {
+
+                for(int i = 0; i < _schliste.Count; i++)
+                {
+                    if (_schliste[i].GetStrecke() >= _lange)
+                    {
+                        nochrunde = false;
+                        break;
+                    }
+                }
+                if(nochrunde == true)
+                {
+                    Task.Delay(1000).Wait();
+                    Console.Clear();
+                    string schneck;
+                    if (bewegung == false)
+                    {
+                        schneck = "_0*";
+                        bewegung= true;
+                    }
+                    else
+                    {
+                        schneck = "_o*";
+                        bewegung = false;
+                    }
+                    foreach (Rennschnecke schnecke in _schliste)
+                    {
+                        Console.SetCursorPosition(schnecke.GetStrecke(), move);
+                        Console.WriteLine(schneck);
+                        Console.SetCursorPosition(_lange + 2, move);
+                        Console.WriteLine("| " +schnecke.GetName());
+                        schnecke.Krieche();
+                        move = move + 2;
+                    }
+                    move = 2;
+                } else
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(5, 2);
+                    Console.WriteLine("!!! FINISH !!! ");
+                    Rennschnecke gewinner = ErmittleGewinner();
+                    Console.SetCursorPosition(3, 3);
+                    Console.WriteLine("Winner: " + gewinner.GetName());
+                }
+
+            } while(nochrunde);
+            
+
+        }
     }
 }
+
