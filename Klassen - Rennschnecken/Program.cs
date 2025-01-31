@@ -17,15 +17,13 @@ namespace Klassen___Rennschnecken
             Rennschnecke Bober = new Rennschnecke("Bober Kurwa", 5);
             Rennschnecke speed = new Rennschnecke("I am speed", 4);
 
-            
-
             // race
-            Rennen race = new Rennen("Race or die", 4, 75);
+            Rennen race = new Rennen("Win or die", 4, 75);
             race.AddSchnecke(Jeremy);
             race.AddSchnecke(James);
             race.AddSchnecke(Bober);
             race.AddSchnecke(speed);
-            Console.WriteLine("\tWelcome - Race or die is about to start!\n");
+            Console.WriteLine("\tWelcome - Win or die is about to start!\n");
             Console.WriteLine("              Snail  |                    Speed");
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine(Jeremy.Ausgabe());
@@ -41,6 +39,7 @@ namespace Klassen___Rennschnecken
             Console.WriteLine("\nPress Enter to start the race!");
             Console.ReadKey();
 
+            // start race
             bool start = false;
             do
             {
