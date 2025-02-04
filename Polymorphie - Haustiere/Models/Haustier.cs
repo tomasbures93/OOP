@@ -34,7 +34,7 @@ namespace Polymorphie___Haustiere.Models
             return _jahresKostenTierarzt;
         }
 
-        public string Beschreibung()
+        public virtual string Beschreibung()
         {
             return $"Name: {_name} \n" +
                 $"SteuerPflicht: {_steuerpflicht}\n" +
