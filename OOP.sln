@@ -41,6 +41,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Bankkonten", "Kla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen - Fussballspiel", "Klassen - Fussballspiel\Klassen - Fussballspiel.csproj", "{BCE06117-F23B-4566-B01A-0DE89D004247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstrakte Klassen", "Abstrakte Klassen\Abstrakte Klassen.csproj", "{B22B9108-EB90-4602-97BB-354950388592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Auto Pickup", "Polymorphie - Auto Pickup\Polymorphie - Auto Pickup.csproj", "{4A44EE95-04B3-4123-B7DB-595F494E4EA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Haustiere", "Polymorphie - Haustiere\Polymorphie - Haustiere.csproj", "{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +129,18 @@ Global
 		{BCE06117-F23B-4566-B01A-0DE89D004247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCE06117-F23B-4566-B01A-0DE89D004247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCE06117-F23B-4566-B01A-0DE89D004247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22B9108-EB90-4602-97BB-354950388592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22B9108-EB90-4602-97BB-354950388592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22B9108-EB90-4602-97BB-354950388592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22B9108-EB90-4602-97BB-354950388592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A44EE95-04B3-4123-B7DB-595F494E4EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A44EE95-04B3-4123-B7DB-595F494E4EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A44EE95-04B3-4123-B7DB-595F494E4EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A44EE95-04B3-4123-B7DB-595F494E4EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
