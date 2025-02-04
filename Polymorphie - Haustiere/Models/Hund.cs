@@ -10,9 +10,10 @@ namespace Polymorphie___Haustiere.Models
     {
         protected string _rasse;
 
-        public Hund(string name, double jahresKostenTierarzt, bool steuerpflicht = true, string rasse) : base(name, steuerpflicht, jahresKostenTierarzt)
+        public Hund(string name, double jahresKostenTierarzt, string rasse, bool steuerpflicht) : base(name, steuerpflicht, jahresKostenTierarzt)
         {
             _rasse = rasse;
+            steuerpflicht = true;
         }
 
         public string GetRasse()
@@ -22,7 +23,7 @@ namespace Polymorphie___Haustiere.Models
 
         public override string Beschreibung()
         {
-            return base.Beschreibung() + $"\nRasse: {_rasse}";
+            return base.Beschreibung() + $"Rasse: {_rasse}\n";
         }
     }
 }

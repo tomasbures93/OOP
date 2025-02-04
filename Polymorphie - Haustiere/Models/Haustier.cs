@@ -12,6 +12,11 @@ namespace Polymorphie___Haustiere.Models
         protected bool _steuerpflicht;
         protected double _jahresKostenTierarzt;
 
+        public Haustier(string name, bool steuerpflicht)
+        {
+            _name = name;
+            _steuerpflicht = steuerpflicht;
+        }
         public Haustier(string name, bool steuerpflicht, double jahresKostenTierarzt)
         {
             _name = name;
@@ -38,7 +43,12 @@ namespace Polymorphie___Haustiere.Models
         {
             return $"Name: {_name} \n" +
                 $"SteuerPflicht: {_steuerpflicht}\n" +
-                $"JahresKosten: {_jahresKostenTierarzt}";
+                $"JahresKosten: {_jahresKostenTierarzt} EUR\n";
+        }
+
+        public string Ausgeben()
+        {
+            return $"Typ: {GetType().Name}\n{this.Beschreibung()}";
         }
     }
 }
