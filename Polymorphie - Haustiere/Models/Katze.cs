@@ -31,6 +31,18 @@ namespace Polymorphie___Haustiere.Models
             }
         }
 
+        public bool HatVogel()
+        {
+            if (_lieblingsVogel == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public override string Beschreibung()
         {
             return base.Beschreibung() + $"Lieblings Vogel: {Vogel()}\n";

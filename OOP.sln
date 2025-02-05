@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Auto Pickup",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Haustiere", "Polymorphie - Haustiere\Polymorphie - Haustiere.csproj", "{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Königreich", "Polymorphie - Königreich\Polymorphie - Königreich.csproj", "{AB9DCD9D-CA75-4A26-A2EC-A906C03D5F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Widerstandsnetz", "Polymorphie - Widerstandsnetz\Polymorphie - Widerstandsnetz.csproj", "{2E48FB9B-D925-45B2-A54E-FD13F739F50A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +145,14 @@ Global
 		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1370F5F2-2EBE-480A-BDB5-DF478F502B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB9DCD9D-CA75-4A26-A2EC-A906C03D5F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB9DCD9D-CA75-4A26-A2EC-A906C03D5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB9DCD9D-CA75-4A26-A2EC-A906C03D5F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB9DCD9D-CA75-4A26-A2EC-A906C03D5F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E48FB9B-D925-45B2-A54E-FD13F739F50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E48FB9B-D925-45B2-A54E-FD13F739F50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E48FB9B-D925-45B2-A54E-FD13F739F50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E48FB9B-D925-45B2-A54E-FD13F739F50A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
