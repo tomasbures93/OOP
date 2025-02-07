@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Widerstandsne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Vereinkostenstruktur", "Polymorphie - Vereinkostenstruktur\Polymorphie - Vereinkostenstruktur.csproj", "{6A9CA5EB-BE2B-4D35-B970-B329F45BEE2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Versandservice", "Polymorphie - Versandservice\Polymorphie - Versandservice.csproj", "{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{6A9CA5EB-BE2B-4D35-B970-B329F45BEE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A9CA5EB-BE2B-4D35-B970-B329F45BEE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A9CA5EB-BE2B-4D35-B970-B329F45BEE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

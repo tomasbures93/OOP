@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6A9CA5EB-BE2B-4D35-B970-B329F45BEE2F}</ProjectGuid>
+    <ProjectGuid>{DA071815-5C4A-4DFB-9FB4-F712E5F636D6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Polymorphie___Vereinkostenstruktur</RootNamespace>
-    <AssemblyName>Polymorphie - Vereinkostenstruktur</AssemblyName>
+    <RootNamespace>Polymorphie___Versandservice</RootNamespace>
+    <AssemblyName>Polymorphie - Versandservice</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AktiveMitglied.cs" />
-    <Compile Include="Models\Amateure.cs" />
-    <Compile Include="Models\Mitglied.cs" />
-    <Compile Include="Models\SpitzenSportler.cs" />
-    <Compile Include="Models\Trainer.cs" />
-    <Compile Include="Models\UnterstutzendesMitglied.cs" />
-    <Compile Include="Models\Verein.cs" />
-    <Compile Include="Models\Vorstandsmitglied.cs" />
+    <Compile Include="Models\Adresse.cs" />
+    <Compile Include="Models\Brief.cs" />
+    <Compile Include="Models\Packstation.cs" />
+    <Compile Include="Models\Paket.cs" />
+    <Compile Include="Models\Postsendung.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
