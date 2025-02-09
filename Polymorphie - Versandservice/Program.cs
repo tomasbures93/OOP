@@ -9,30 +9,430 @@ namespace Polymorphie___Versandservice
 {
     internal class Program
     {
+        static Packstation packstation = new Packstation("Bochum 44805");
         static void Main(string[] args)
         {
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n\tInteraktive Mailbox system DR.Heuer");
+                Console.WriteLine($"\n\tPackstation: {packstation.GetName()}\n");
+                Console.WriteLine("\tMenu\n");
+                Console.WriteLine("\t1 - Send Letter");
+                Console.WriteLine("\t2 - Send Package");
+                Console.WriteLine("\t3 - Mailbox info");
+                Console.WriteLine("\t4 - RoyalMail service portal");
+                Console.WriteLine("\t5 - Exit");
+                DrawPost();
+         
+                string input = Console.ReadLine().ToLower();
+                if (string.IsNullOrEmpty(input)) input = "0";
+                switch (input[0])
+                {
+                    case '1':
+                        SendLetter();
+                        break;
+                    case '2':
+                        // TO DO Teil 3
+                        SendPackage();
+                        break;
+                    case '3':
+                        ShowInfo();
+                        break;
+                    case '4':
+                        // TO DO
+                        RoyalMail();
+                        Console.ReadKey();
+                        break;
+                    case '5':
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\n\tThanks for using our System.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tWrong input, try again.\n\tPress Enter to Continue");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ReadKey();
+                        break;
+                }
+            } while (true);
 
-            // Testen ob es geht
-            Adresse adresse = new Adresse("Bures", "Tomas", "Harantova 649", "29501 Mnichovo Hradiste", "Czech Republic");
-            Adresse adresse2 = new Adresse("Bures", "Tomas", "Zentrum 1", "44805 Bochum");
-            Adresse adresse3 = new Adresse("","", "", "");
-            Adresse adresse4 = new Adresse("Lalala", "", "", "");
-            Adresse adresse5 = new Adresse("Lalala", "Mohamand", "", "");
-            Adresse adresse6 = new Adresse("Lalala", "Mohamand", "lempsky", "");
+        }
 
+        public static void ShowInfo()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\tInfo Portal\n");
+            packstation.PackstationPublicInfo();
+            DrawPost();
+            Console.ReadKey();
+        }
 
-            Console.WriteLine(adresse.ToString());
-            Console.WriteLine(adresse.IsGultig());
-            Console.WriteLine(adresse2.ToString());
-            Console.WriteLine(adresse2.IsGultig());
-            Console.WriteLine(adresse3.ToString());
-            Console.WriteLine(adresse3.IsGultig());
-            Console.WriteLine(adresse4.ToString());
-            Console.WriteLine(adresse4.IsGultig());
-            Console.WriteLine(adresse5.ToString());
-            Console.WriteLine(adresse5.IsGultig());
-            Console.WriteLine(adresse6.ToString());
-            Console.WriteLine(adresse6.IsGultig());
+        public static void SendPackage()
+        {
+            string input = "";
+            double gewicht;
+            bool versicherung = false;
+            BriefTyp briefTyp;
+            string[] vorname = new string[2];
+            string[] nachname = new string[2];
+            string[] strhaus = new string[2];
+            string[] plzort = new string[2];
+            string[] land = new string[2];
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n\tHow to send a package\n");
+                Console.WriteLine("\t1) Insert weight\n\t2) Insurance ( y / n )\n\t3) Type Sender\n\t4) Type in Reciever\n\t5) Control your order\n\t6) Send or Change your order\n");
+                Console.WriteLine("\tPress Enter to start.");
+                DrawPost();
+                Console.ReadKey();
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n\tHow heavy is the package (kg) ?");
+                    if(double.TryParse(Console.ReadLine(), out gewicht))
+                    {
+                        Console.WriteLine($"\n\tPackage: {gewicht} kg");
+                        Console.ReadKey();
+                        break;
+                    } else
+                    {
+                        Console.WriteLine("\n\tWrong input, please try it again.");
+                        Console.WriteLine("\tPress Enter to continue");
+                        Console.ReadKey();
+                    }
+                } while (true);
+                Console.Clear();
+                Console.WriteLine("\n\tWould you like to insure your package ( y / n )");
+                input = Console.ReadLine().ToLower();
+                if (input[0] == 'y')
+                {
+                    versicherung = true;
+                    Console.WriteLine("\n\tYour Package will be insured!");
+                } else
+                {
+                    versicherung = false;
+                    Console.WriteLine("\n\tYour Package will not be insured!");
+                }
+                Console.WriteLine("\tPress Enter to continue");
+                Console.ReadKey();
+                Console.Clear();
+                do
+                {
+                    Console.WriteLine($"\n\tPlease Insert Sender");
+                    Console.Write($"\tFirst Name: ");
+                    vorname[0] = Console.ReadLine();
+                    Console.Write($"\tLast Name: ");
+                    nachname[0] = Console.ReadLine();
+                    Console.Write($"\tStreet + House number: ");
+                    strhaus[0] = Console.ReadLine();
+                    Console.Write($"\tCity Code + City: ");
+                    plzort[0] = Console.ReadLine();
+                    Console.Write($"\tCountry: ");
+                    land[0] = Console.ReadLine();
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine($"\n\tPlease Insert Reciever");
+                    Console.Write($"\tFirst Name: ");
+                    vorname[1] = Console.ReadLine();
+                    Console.Write($"\tLast Name: ");
+                    nachname[1] = Console.ReadLine();
+                    Console.Write($"\tStreet + House number: ");
+                    strhaus[1] = Console.ReadLine();
+                    Console.Write($"\tCity Code + City: ");
+                    plzort[1] = Console.ReadLine();
+                    Console.Write($"\tCountry: ");
+                    land[1] = Console.ReadLine();
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine($"\n\tPackage Info");
+                    Console.WriteLine($"\n\tWeight: {gewicht}");
+                    Console.WriteLine($"\tInsurance: {versicherung}\n");
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if (i == 0)
+                        {
+                            Console.WriteLine($"\tSender Information");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\n\tReciever Information");
+                        }
+                        Console.WriteLine($"\tName: {vorname[i]} {nachname[i]}");
+                        Console.WriteLine($"\tStreet: {strhaus[i]}");
+                        Console.WriteLine($"\tCity: {plzort[i]}");
+                        Console.WriteLine($"\tLand: {land[i]}");
+                    }
+                    Console.WriteLine("\n\tAre those information Correct ( y / n )?");
+                    input = Console.ReadLine().ToLower();
+                    if (input[0] == 'y')
+                    {
+                        Console.WriteLine("\n\tYour package will be send shortly.");
+                        packstation.NeuePaket(
+                                new Adresse(nachname[0], vorname[0], strhaus[0], plzort[0], land[0]),
+                                new Adresse(nachname[1], vorname[1], strhaus[1], plzort[1], land[1]),
+                                gewicht,
+                                versicherung);
+                        break;
+                    }
+                    else if (input[0] == 'n')
+                    {
+                        Console.WriteLine("\n\tOkay, lets go thru again.");
+                        Console.WriteLine("\tPress enter to Continue");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\tWrong input - lets go thru again.");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                } while (true);
+                Console.ReadKey();
+                break;
+            } while (true);
+        }
+
+        public static void SendLetter()
+        {
+            string input = "";
+            BriefTyp briefTyp;
+            string[] vorname = new string[2];
+            string[] nachname = new string[2];
+            string[] strhaus = new string[2];
+            string[] plzort = new string[2];
+            string[] land = new string[2];
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n\tHow to send a letter\n");
+                Console.WriteLine("\t1) Choose a type of Letter\n\t2) Type in Sender\n\t3) Type in Reciever\n\t4) Control your order\n\t5) Send or Change your order\n");
+                Console.WriteLine("\tPress Enter to start.");
+                DrawPost();
+                Console.ReadKey();
+                // Choose a type of Letter
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n\tWhich type of Letter would you like to send?\n");
+                    Console.WriteLine("\t1 - Standart");
+                    Console.WriteLine("\t2 - Eilbrief");
+                    Console.WriteLine("\t3 - Einschreiben");
+                    input = Console.ReadLine();
+                    switch (input[0])
+                    {
+                        case '1':
+                            briefTyp = BriefTyp.Standartbrief;
+                            Console.WriteLine($"\n\tLetter type set to: {briefTyp.ToString()}");
+                            break;
+                        case '2':
+                            briefTyp = BriefTyp.Eilbrief;
+                            Console.WriteLine($"\n\tLetter type set to: {briefTyp.ToString()}");
+                            break;
+                        case '3':
+                            briefTyp = BriefTyp.Einschreiben;
+                            Console.WriteLine($"\n\tLetter type set to: {briefTyp.ToString()}");
+                            break;
+                        default:
+                            briefTyp = BriefTyp.Standartbrief;
+                            Console.WriteLine($"Wrong input. Letter type set to: {briefTyp.ToString()}");
+                            break;
+                    }
+                    Console.ReadKey();
+                    break;
+                } while (true);
+                Console.Clear();
+                Console.WriteLine($"\n\tYour order\n\tLetter type: {briefTyp.ToString()}");
+                do
+                {
+                    Console.WriteLine($"\n\tPlease Insert Sender");
+                    Console.Write($"\tFirst Name: ");
+                    vorname[0] = Console.ReadLine();
+                    Console.Write($"\tLast Name: ");
+                    nachname[0] = Console.ReadLine();
+                    Console.Write($"\tStreet + House number: ");
+                    strhaus[0] = Console.ReadLine();
+                    Console.Write($"\tCity Code + City: ");
+                    plzort[0] = Console.ReadLine();
+                    Console.Write($"\tCountry: ");
+                    land[0] = Console.ReadLine();
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine($"\n\tPlease Insert Reciever");
+                    Console.Write($"\tFirst Name: ");
+                    vorname[1] = Console.ReadLine();
+                    Console.Write($"\tLast Name: ");
+                    nachname[1] = Console.ReadLine();
+                    Console.Write($"\tStreet + House number: ");
+                    strhaus[1] = Console.ReadLine();
+                    Console.Write($"\tCity Code + City: ");
+                    plzort[1] = Console.ReadLine();
+                    Console.Write($"\tCountry: ");
+                    land[1] = Console.ReadLine();
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine($"\n\tLetter type: {briefTyp.ToString()}\n");
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if(i == 0)
+                        {
+                            Console.WriteLine($"\tSender Information");
+                        } else
+                        {
+                            Console.WriteLine($"\n\tReciever Information");
+                        }
+                        Console.WriteLine($"\tName: {vorname[i]} {nachname[i]}");
+                        Console.WriteLine($"\tStreet: {strhaus[i]}");
+                        Console.WriteLine($"\tCity: {plzort[i]}");
+                        Console.WriteLine($"\tLand: {land[i]}");
+                    }
+                    Console.WriteLine("\n\tAre those information Correct ( y / n )?");
+                    input = Console.ReadLine().ToLower();
+                    if (input[0] == 'y')
+                    {
+                        Console.WriteLine("\n\tYour letter will be send shortly.");
+                        packstation.NeueBrief(
+                                new Adresse(nachname[0], vorname[0], strhaus[0], plzort[0], land[0]),
+                                new Adresse(nachname[1], vorname[1], strhaus[1], plzort[1], land[1]),
+                                briefTyp);
+                        break;
+                    } else if (input[0] == 'n')
+                    {
+                        Console.WriteLine("\n\tOkay, lets go thru again.");
+                        Console.WriteLine("\tPress enter to Continue");
+                        Console.ReadKey();
+                        Console.Clear();
+                    } else
+                    {
+                        Console.WriteLine("\n\tWrong input - lets go thru again.");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                } while (true);
+                Console.ReadKey();
+                break;
+            } while (true);
+        }
+
+        public static void RoyalMail()
+        {
+            // TO DO when you are logged in
+            int counter = 1;
+            string input = "";
+            do
+            {
+                Console.Clear();
+                Console.WriteLine($"\n\tPlease Log in | Attempt: {counter} / 3\n");
+                Console.Write("\tLogin: ");
+                string name = Console.ReadLine();
+                Console.Write("\tPassword: ");
+                string password = Console.ReadLine();
+                if(name == "Tomas" && password == "Tomas")
+                {
+                    bool getout = false;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\n\tWelcome User in Package Management system.\n");
+                        Console.WriteLine($"\tName: {packstation.GetName()}");
+                        Console.WriteLine($"\tOccupancy: {packstation.GetOccupancy()} / 200");
+                        Console.WriteLine("\n\tMenu");
+                        Console.WriteLine("\t1 - Show all Letters");
+                        Console.WriteLine("\t2 - Show all Packages");
+                        Console.WriteLine("\t3 - Show everything");
+                        Console.WriteLine("\t4 - Control and send all Mails.");
+                        Console.WriteLine("\t5 - Exit\n");
+                        input = Console.ReadLine().ToLower();
+                        if (string.IsNullOrEmpty(input)) input = "6";
+                        switch (input[0])
+                        {
+                            case '1':
+                                Console.Clear();
+                                packstation.PackstationBriefInfo();
+                                Console.ReadKey();
+                                break;
+                            case '2':
+                                Console.Clear();
+                                packstation.PackstationPaketInfo();
+                                Console.ReadKey();
+                                break;
+                            case '3':
+                                Console.Clear();
+                                ShowPackstationInfo();
+                                Console.ReadKey();
+                                break;
+                            case '4':
+                                break;
+                            case '5':
+                                getout = true;
+                                break;
+                            default:
+                                Console.WriteLine("\tWrong input - try again");
+                                Console.WriteLine("\tPress Enter to try again");
+                                Console.ReadKey();
+                                break;
+                        }
+                        
+                    } while (getout == false);
+                    Console.WriteLine("I am out");
+                    Console.ReadKey();
+                } else
+                {
+                    if (counter == 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tWrong Login or Password.\n\tThat was your third attemt.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    } else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tWrong Login or Password.\n\tPress Enter to try again");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    counter++;
+                }
+                Console.ReadKey();
+                
+            } while (true);
+        }
+
+        public static void ShowPackstationInfo()
+        {
+            Console.Clear();
+            Console.WriteLine($"\tOccupancy: {packstation.GetOccupancy()} / 200\n");
+            packstation.PackstationPrivateInfo();
+        }
+
+        public static void DrawPost()
+        {
+            Console.SetCursorPosition(50, 1);
+            Console.WriteLine("       _________");
+            Console.SetCursorPosition(50, 2);
+            Console.WriteLine("     .`.        `.");
+            Console.SetCursorPosition(50, 3);
+            Console.WriteLine("    /   \\ .======.\\ ");
+            Console.SetCursorPosition(50, 4);
+            Console.WriteLine("    |   | | _____||");
+            Console.SetCursorPosition(50, 5);
+            Console.WriteLine("    |   |   _____ | ");
+            Console.SetCursorPosition(50, 6);
+            Console.WriteLine("    |   |  /    / | ");
+            Console.SetCursorPosition(50, 7);
+            Console.WriteLine("    |   | /____/  | ");
+            Console.SetCursorPosition(50, 8);
+            Console.WriteLine("    | _ |         | ");
+            Console.SetCursorPosition(50, 9);
+            Console.WriteLine("    |/ \\|.-\"```\"-.| ");
+            Console.SetCursorPosition(50, 10);
+            Console.WriteLine("    `` |||      ||| ");
+            Console.SetCursorPosition(50, 11);
+            Console.WriteLine("       `\"`      `\" ");
         }
     }
 }

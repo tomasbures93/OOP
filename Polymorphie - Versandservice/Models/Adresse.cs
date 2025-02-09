@@ -34,7 +34,7 @@ namespace Polymorphie___Versandservice.Models
 
         public override string ToString()
         {
-            return $"-----\n{_vorname} {_nachname}\n{_strhaus}\n{_plzort}\n{_land}";
+            return $"\t| {_vorname} {_nachname}\n\t| {_strhaus}\n\t| {_plzort}\n\t| {_land}\n";
         }
     }
 }
