@@ -36,5 +36,10 @@ namespace Polymorphie___Versandservice.Models
         {
             return $"\t| {_vorname} {_nachname}\n\t| {_strhaus}\n\t| {_plzort}\n\t| {_land}\n";
         }
+
+        public string ToSmallString()
+        {
+            return $"| {_vorname} {_nachname} | {_strhaus} | {_plzort} | {_land} |";
+        }
     }
 }

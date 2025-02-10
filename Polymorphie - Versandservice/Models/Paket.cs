@@ -20,7 +20,7 @@ namespace Polymorphie___Versandservice.Models
             _gewicht = gewicht;
             _versichert = versichert;
         }
-        public int GetID()
+        public override int GetID()
         {
             return _id;
         }

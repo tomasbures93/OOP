@@ -41,6 +41,8 @@ namespace Polymorphie___Versandservice.Models
 
         public abstract string SmallInfo();
 
+        public abstract int GetID();
+
         public string SetAbsender()
         {
             // TO DO

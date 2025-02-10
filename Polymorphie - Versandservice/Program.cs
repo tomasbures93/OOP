@@ -20,11 +20,11 @@ namespace Polymorphie___Versandservice
                 Console.WriteLine("\tMenu\n");
                 Console.WriteLine("\t1 - Send Letter");
                 Console.WriteLine("\t2 - Send Package");
-                Console.WriteLine("\t3 - Mailbox info");
-                Console.WriteLine("\t4 - RoyalMail service portal");
-                Console.WriteLine("\t5 - Exit");
+                Console.WriteLine("\t3 - Track Package");
+                Console.WriteLine("\t4 - Mailbox info");
+                Console.WriteLine("\t5 - RoyalMail service portal");
+                Console.WriteLine("\t6 - Exit");
                 DrawPost();
-         
                 string input = Console.ReadLine().ToLower();
                 if (string.IsNullOrEmpty(input)) input = "0";
                 switch (input[0])
@@ -33,17 +33,19 @@ namespace Polymorphie___Versandservice
                         SendLetter();
                         break;
                     case '2':
-                        // TO DO Teil 3
                         SendPackage();
                         break;
                     case '3':
-                        ShowInfo();
+                        TrackPackage();
                         break;
                     case '4':
+                        ShowInfo();
+                        break;
+                    case '5':
                         RoyalMail();
                         Console.ReadKey();
                         break;
-                    case '5':
+                    case '6':
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\n\tThanks for using our System.");
@@ -60,6 +62,26 @@ namespace Polymorphie___Versandservice
             } while (true);
 
         }
+        public static void TrackPackage()
+        {
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n\tPlease insert package ID you want to track");
+                if(int.TryParse(Console.ReadLine(), out int ID))
+                {
+                    packstation.PaketVerfolgung(ID);
+                    Console.ReadKey();
+                    break;
+                } else
+                {
+                    Console.WriteLine("\n\tWrong input");
+                    Console.ReadKey();
+                    break;
+                }
+            } while (true);
+        }
+
 
         public static void ShowInfo()
         {
@@ -75,7 +97,7 @@ namespace Polymorphie___Versandservice
             string input = "";
             double gewicht;
             bool versicherung = false;
-            BriefTyp briefTyp;
+            bool tracking = false;
             string[] vorname = new string[2];
             string[] nachname = new string[2];
             string[] strhaus = new string[2];
@@ -85,7 +107,7 @@ namespace Polymorphie___Versandservice
             {
                 Console.Clear();
                 Console.WriteLine("\n\tHow to send a package\n");
-                Console.WriteLine("\t1) Insert weight\n\t2) Insurance ( y / n )\n\t3) Type Sender\n\t4) Type in Reciever\n\t5) Control your order\n\t6) Send or Change your order\n");
+                Console.WriteLine("\t1) Insert weight\n\t2) Insurance ( y / n )\n\t3) Type Sender\n\t4) Package tracking ( y / n )\n\t5) Type in Reciever\n\t6) Control your order\n\t7) Send or Change your order\n");
                 Console.WriteLine("\tPress Enter to start.");
                 DrawPost();
                 Console.ReadKey();
@@ -118,6 +140,20 @@ namespace Polymorphie___Versandservice
                     Console.WriteLine("\n\tYour Package will not be insured!");
                 }
                 Console.WriteLine("\tPress Enter to continue");
+                Console.ReadKey();
+                Console.Clear();
+                Console.WriteLine("\n\tWould you like to track your package ( y / n )?");
+                input = Console.ReadLine().ToLower();
+                if (input[0] == 'y')
+                {
+                    tracking = true;
+                    Console.WriteLine("\n\tYour Package will be tracked!");
+                }
+                else
+                {
+                    tracking = false;
+                    Console.WriteLine("\n\tYour Package will not be tracked!");
+                }
                 Console.ReadKey();
                 Console.Clear();
                 do
@@ -175,8 +211,14 @@ namespace Polymorphie___Versandservice
                                 new Adresse(nachname[0], vorname[0], strhaus[0], plzort[0], land[0]),
                                 new Adresse(nachname[1], vorname[1], strhaus[1], plzort[1], land[1]),
                                 gewicht,
-                                versicherung);
-                        break;
+                                versicherung,
+                                tracking);
+                        int id = packstation.GetLastID();
+                        if (tracking == true)
+                        {
+                            Console.WriteLine($"\n\tYou can track your package with ID {id}");
+                        }
+                            break;
                     }
                     else if (input[0] == 'n')
                     {
@@ -214,7 +256,6 @@ namespace Polymorphie___Versandservice
                 Console.WriteLine("\tPress Enter to start.");
                 DrawPost();
                 Console.ReadKey();
-                // Choose a type of Letter
                 do
                 {
                     Console.Clear();
@@ -320,7 +361,6 @@ namespace Polymorphie___Versandservice
 
         public static void RoyalMail()
         {
-            // TO DO when you are logged in
             int counter = 1;
             string input = "";
             do
@@ -329,6 +369,10 @@ namespace Polymorphie___Versandservice
                 Console.WriteLine($"\n\tPlease Log in | Attempt: {counter} / 3\n");
                 Console.Write("\tLogin: ");
                 string name = Console.ReadLine();
+                if(name == "exit")
+                {
+                    break;
+                }
                 Console.Write("\tPassword: ");
                 string password = Console.ReadLine();
                 if(name == "Tomas" && password == "Tomas")
@@ -339,13 +383,14 @@ namespace Polymorphie___Versandservice
                         Console.Clear();
                         Console.WriteLine("\n\tWelcome User in Package Management system.\n");
                         Console.WriteLine($"\tName: {packstation.GetName()}");
-                        Console.WriteLine($"\tOccupancy: {packstation.GetOccupancy()} / 200");
+                        Console.WriteLine($"\tOccupancy: {packstation.GetOccupancy()} / XXX");
                         Console.WriteLine("\n\tMenu");
                         Console.WriteLine("\t1 - Show all Letters");
                         Console.WriteLine("\t2 - Show all Packages");
                         Console.WriteLine("\t3 - Show everything");
-                        Console.WriteLine("\t4 - Control and send all Mails.");
-                        Console.WriteLine("\t5 - Exit\n");
+                        Console.WriteLine("\t4 - Check Adresses and send.");
+                        Console.WriteLine("\t5 - Move Package with tracking.");
+                        Console.WriteLine("\t6 - Exit\n");
                         input = Console.ReadLine().ToLower();
                         if (string.IsNullOrEmpty(input)) input = "6";
                         switch (input[0])
@@ -366,9 +411,16 @@ namespace Polymorphie___Versandservice
                                 Console.ReadKey();
                                 break;
                             case '4':
-                                // TO DO
+                                Console.Clear();
+                                packstation.Ausliefern();
+                                Console.ReadKey();
                                 break;
                             case '5':
+                                Console.Clear();
+                                MovePackage();
+                                Console.ReadKey();
+                                break;
+                            case '6':
                                 getout = true;
                                 break;
                             default:
@@ -399,6 +451,31 @@ namespace Polymorphie___Versandservice
                 }
                 Console.ReadKey();
                 
+            } while (true);
+        }
+
+        public static void MovePackage()
+        {
+            Console.Clear();
+            packstation.PackstationVerPaketInfo();
+            do
+            {
+                Console.WriteLine("\n\tPlease insert package ID you want to move");
+                if (int.TryParse(Console.ReadLine(), out int ID))
+                {
+                    Console.WriteLine("\n\tPlease insert new Adress");
+                    string input = Console.ReadLine();
+                    packstation.MovePackage(ID, input);
+                    Console.WriteLine("Package was moved.");
+                    Console.ReadKey();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\n\tWrong input");
+                    Console.ReadKey();
+                    break;
+                }
             } while (true);
         }
 

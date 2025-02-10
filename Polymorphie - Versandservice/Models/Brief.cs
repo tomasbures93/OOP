@@ -26,7 +26,7 @@ namespace Polymorphie___Versandservice.Models
             _briefTyp = briefTyp;
         }
 
-        public int GetID()
+        public override int GetID()
         {
             return _id;
         }

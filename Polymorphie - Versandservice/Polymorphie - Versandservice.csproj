@@ -48,6 +48,8 @@
     <Compile Include="Models\Packstation.cs" />
     <Compile Include="Models\Paket.cs" />
     <Compile Include="Models\Postsendung.cs" />
+    <Compile Include="Models\Station.cs" />
+    <Compile Include="Models\VervolgungsPaket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
