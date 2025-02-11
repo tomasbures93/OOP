@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphie - Versandservic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP - Kaffemachine", "OOP - Kaffemachine\OOP - Kaffemachine.csproj", "{4A140E46-A6A9-4BB8-AE4C-22466009EBD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface - Aufgabe 1", "Interface - Aufgabe 1\Interface - Aufgabe 1.csproj", "{7BD27812-B588-4942-8DF7-DCC2A351FF90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface - Nachrichten", "Interface - Nachrichten\Interface - Nachrichten.csproj", "{2024F1A3-0CFD-443B-9A0A-54559232343B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +175,14 @@ Global
 		{4A140E46-A6A9-4BB8-AE4C-22466009EBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A140E46-A6A9-4BB8-AE4C-22466009EBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A140E46-A6A9-4BB8-AE4C-22466009EBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD27812-B588-4942-8DF7-DCC2A351FF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD27812-B588-4942-8DF7-DCC2A351FF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD27812-B588-4942-8DF7-DCC2A351FF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD27812-B588-4942-8DF7-DCC2A351FF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2024F1A3-0CFD-443B-9A0A-54559232343B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2024F1A3-0CFD-443B-9A0A-54559232343B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2024F1A3-0CFD-443B-9A0A-54559232343B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2024F1A3-0CFD-443B-9A0A-54559232343B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
