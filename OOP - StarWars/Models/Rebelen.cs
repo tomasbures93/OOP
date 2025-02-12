@@ -8,162 +8,131 @@ using System.Threading.Tasks;
 
 namespace OOP___StarWars.Models
 {
-    enum ShifftypR
-    {
-        XWing,
-        YWing,
-        AWing
-    }
-    internal class Rebelen : ISchiff
+   
+    internal class Rebelen : Raumschiff
     {
         private ShifftypR _shifttyp;
+        private int _shielde;
+        private bool _r2;
         private int _hulle;
-        private int _fauerkraft;
-        private ConsoleColor _laserfarbe;
+        private int _feuerkraft;
         private string _motto;
         private string _art;
         private string _callsign;
-        private bool _abgeschossen;
-        private bool _repairt;
-        private int _shielde;
-        private bool _r2;
 
-        public Rebelen(ShifftypR typ)
+        public Rebelen(ConsoleColor color,ShifftypR typ) : base(color) 
         {
             _shifttyp = typ;
+            _color = color;
             SetShiff(typ);
-            _laserfarbe = ConsoleColor.Green;
-            _repairt = false;
-            _abgeschossen = false;
             _motto = "Möge die Macht mit dir sein!";
         }
-
-        public void Fire(Imperial shiff)
+        public override void IsHit(int dmg)
         {
-            string shiffn;
-            if (_shifttyp == ShifftypR.XWing)
+            if(_shielde > 0)
             {
-                shiffn = "X-Wing";
-            }
-            else if (_shifttyp == ShifftypR.YWing)
+                _shielde = _shielde - dmg;
+            } else
             {
-                shiffn = "Y-Wing";
-            }
-            else
-            {
-                shiffn = "A-Wing";
-            }
-            string shiffnn;
-            if (shiff.Ship == ShifftypI.TIEFighter)
-            {
-                shiffnn = "TIE-Fighter";
-            }
-            else if (shiff.Ship == ShifftypI.TIEInterceptor)
-            {
-                shiffnn = "TIE-Interceptor";
-            }
-            else
-            {
-                shiffnn = "TIE-Bomber";
-            }
-            shiff.Hulle -= this.FeuerKraft;
-            Console.WriteLine($"\tHP: {_hulle + _shielde} | {this._art} {this.CallSign} ({shiffn}) firing at {shiff.ASCII} {shiff.CallSign} ({shiffn}) | HP: {shiff.Hulle}");
-
-        }
-
-        private void SetShiff(ShifftypR typ)
-        {
-            if(typ == ShifftypR.XWing)
-            {
-                _hulle = 500;
-                _shielde = 500;
-                _fauerkraft = 60;
-                _callsign = "Red One";
-                _r2 = true;
-                _art = ":>o<:";
-            } 
-            else if(typ == ShifftypR.YWing)
-            {
-                _hulle = 600;
-                _shielde = 400;
-                _fauerkraft = 50;
-                _callsign = "Gold One";
-                _r2 = true;
-                _art = "O=<^>=O";
-            } 
-            else if (typ == ShifftypR.AWing)
-            {
-                _hulle = 400;
-                _shielde = 600;
-                _fauerkraft = 40;
-                _callsign = "Green One";
-                _r2 = false;
-                _art = "iAi";
+                _hulle = _hulle - dmg;
             }
         }
-        public int Hulle 
-        { 
-            get { return _hulle; } 
-            set { _hulle = value; } 
-        }
-        public ShifftypR Ship
+        public override void Fire(Raumschiff shiff)
         {
-            get { return _shifttyp; }
+            Raumschiff raumshiff = shiff;
+            Random rnd = new Random();
+            int dmg = this.GetFeuerkraft() * rnd.Next(0, 3);
+            raumshiff.IsHit(dmg);
+            Console.WriteLine($"\t{this.GetInfo()} ({Shiff()}) ({Shiff()}) firing at {shiff.GetInfo()} dealing {dmg} dmg!");
+            Console.Write($"\t{this.GetArt()}");
+            Console.ForegroundColor = _color;
+            Console.Write($"-------------");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write($"{shiff.GetArt()}\n\n");
         }
-        public int Shield
+        public override string GetArt()
         {
-            get { return _shielde; }
-            set { _shielde = value; }
-        }
-        public int FeuerKraft 
-        { 
-            get { return _fauerkraft;  }
-        }
-        public string CallSign 
-        { 
-            get { return _callsign; } 
+            return _art;
         }
 
-        public string ASCII 
+        public override string GetInfo()
         {
-            get { return _art; } 
+            return _art + " " + _callsign;
+        }
+        public override int FullHP()
+        {
+            return GetShielde() + GetHulle();
+        }
+        public override int GetShielde()
+        {
+            return _shielde;
+        }
+        public override int GetHulle()
+        {
+            return _hulle;
         }
 
-        public int Shielde
+        public override int GetFeuerkraft()
         {
-            get { return _shielde; }
-        }
-
-        public ConsoleColor LaserFarbe 
-        {
-            get { return _laserfarbe; } 
-        }
-
-        public string Motto 
-        { 
-            get { return _motto; }
+            return _feuerkraft;
         }
 
         public override string ToString()
         {
-            string shiff;
-            if (_shifttyp == ShifftypR.XWing)
-            {
-                shiff = "X-Wing";
-            }
-            else if (_shifttyp == ShifftypR.YWing)
-            {
-                shiff = "Y-Wing";
-            }
-            else
-            {
-                shiff = "A-Wing";
-            }
+            string shiff = Shiff();
             string text = $"\n\tShiff: {shiff}\n\tHülle: {_hulle}" +
-                $"\n\tShilde: {_shielde}\n\tFeuerkraft: {_fauerkraft}" +
+                $"\n\tShilde: {_shielde}\n\tFeuerkraft: {_feuerkraft}" +
                 $"\n\tCallSing: {_callsign}\n\tR2-Einheit: {_r2}" +
                 $"\n\tFoto: {_art}";
             return text;
+        }
+
+        private string Shiff()
+        {
+            string shiff;
+            if (_shifttyp == ShifftypR.XWing)
+            {
+                return shiff = "X-Wing";
+            }
+            else if (_shifttyp == ShifftypR.YWing)
+            {
+                return shiff = "Y-Wing";
+            }
+            else 
+            {
+                return shiff = "A-Wing";
+            }
+        }
+
+        private void SetShiff(ShifftypR typ)
+        {
+            if (typ == ShifftypR.XWing)
+            {
+                _hulle = 500;
+                _shielde = 500;
+                _feuerkraft = 60;
+                _callsign = "Red One";
+                _r2 = true;
+                _art = ":>o<:";
+            }
+            else if (typ == ShifftypR.YWing)
+            {
+                _hulle = 600;
+                _shielde = 400;
+                _feuerkraft = 50;
+                _callsign = "Gold One";
+                _r2 = true;
+                _art = "O=<^>=O";
+            }
+            else if (typ == ShifftypR.AWing)
+            {
+                _hulle = 400;
+                _shielde = 600;
+                _feuerkraft = 40;
+                _callsign = "Green One";
+                _r2 = false;
+                _art = "iAi";
+            }
         }
     }
 }

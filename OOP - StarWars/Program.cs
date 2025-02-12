@@ -9,49 +9,89 @@ namespace OOP___StarWars
 {
     internal class Program
     {
-        static List<Rebelen> rebelen = new List<Rebelen>();
-        static List<Imperial> imperial = new List<Imperial>();
+        /*
+         TO DO
+            1) Show Rebels ships
+            2) Show Imperium ships
+            3) Rebels can use shield
+            4) Imperium can go back and repair
+            5) Control fight strings something is not right there
+         */
+        static List<Raumschiff> rebelen = new List<Raumschiff>();
+        static List<Raumschiff> imperial = new List<Raumschiff>();
         static void Main(string[] args)
         {
+            string input = "";
             Console.WriteLine("\n\tGenerating .....");
-            NewFlottile(6);
+            NewFlottile(7);
             Console.Clear();
-            //ShiffeLesen();
-            Console.WriteLine("\n\tPress Enter to Start a fight....");
-            Console.ReadKey();
-            StartFight();
+            Console.WriteLine("\n\tStar Wars - Destruction Derby\n");
+            Console.WriteLine("\tMenu");
+            Console.WriteLine("\t1 - Show Rebels");
+            Console.WriteLine("\t2 - Show Imperium");
+            Console.WriteLine("\t3 - Start Fight");
+            Console.WriteLine("\t4 - Exit");
+            input = Console.ReadLine().ToLower();
+            if (string.IsNullOrEmpty(input)) input = "5";
+            switch (input[0])
+            {
+                case '1':
+                    ShiffeLesen();
+                    break;
+                case '2':
+                    ShiffeLesen();
+                    break;
+                case '3':
+                    StartFight();
+                    break;
+                case '4':
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("\tWrong input");
+                    break;
+            } 
         }
 
         static void StartFight()
         {
-            Rebelen shiff;
-            Imperial shiff2;
-            int position1 = 0, position2 = 0;
+            Raumschiff shiff;
+            Raumschiff shiff2;
+            int position1 = 0, position2 = 0, pointsRebelen = 0, pointsImperial = 0 ;
             int lange = rebelen.Count;
             shiff = rebelen[position1];
             shiff2 = imperial[position2];
             do
             {
-                if(shiff.Hulle + shiff.Shielde > 0)
+                Console.Clear();
+                Console.WriteLine($"\n\t{shiff.GetInfo()} ( HP: {shiff.FullHP()} ) vs {shiff2.GetInfo()} ( HP: {shiff2.FullHP()} ) \n");
+                Console.WriteLine($"\tScore {pointsRebelen} vs {pointsImperial} ) \n");
+                if (shiff.FullHP() > 0)
                 {
                     shiff.Fire(shiff2);
-                } else
+                } 
+                else
                 {
                     position1++;
+                    pointsImperial++;
                     shiff = rebelen[position1];
+                    Console.WriteLine($"{shiff.GetInfo()} has been destroyed");
                 }
-                if (shiff2.Hulle > 0)
+                Task.Delay(1500).Wait();
+                if (shiff2.FullHP() > 0)
                 {
                     shiff2.Fire(shiff);
                 }
                 else
                 {
                     position2++;
+                    pointsRebelen++;
                     shiff2 = imperial[position2];
+                    Console.WriteLine($"{shiff.GetInfo()} has been destroyed");
                 }
                 Console.ReadKey();
             } while (true);
-            
+
         }
 
         static void NewFlottile(int menge)
@@ -62,12 +102,12 @@ namespace OOP___StarWars
                 int random = rnd.Next(0, 3);
                 if (Enum.IsDefined(typeof(ShifftypR), random))
                 {
-                    rebelen.Add(new Rebelen((ShifftypR)random));
+                    rebelen.Add(new Rebelen(ConsoleColor.Red,(ShifftypR)random));
                 }
                 random = rnd.Next(0, 3);
                 if (Enum.IsDefined(typeof(ShifftypI), random))
                 {
-                    imperial.Add(new Imperial((ShifftypI)random));
+                    imperial.Add(new Imperial(ConsoleColor.Green,(ShifftypI)random));
                 }
                 Task.Delay(1000).Wait();
             }
