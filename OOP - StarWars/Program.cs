@@ -234,7 +234,7 @@ namespace OOP___StarWars
         static void Intro()
         {
             Console.WriteLine("\n         .      .     T h i s   i s   t h e g a l a x y o f. . .             .");
-            Console.WriteLine("                                  .              .       .                    .      .");
+            Console.WriteLine("                                  .              .       .               .      .");
             Console.WriteLine(" .        .               .       .     .            .");
             Console.WriteLine("    .           .        .                     .        .            .");
             Console.WriteLine("              .               .    .          .              .   .         .");
