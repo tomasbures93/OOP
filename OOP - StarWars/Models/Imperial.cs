@@ -1,6 +1,6 @@
-﻿using OOP___StarWars.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace OOP___StarWars.Models
     internal class Imperial : Raumschiff
     {
         private ShifftypI _shifttyp;
-        private int _hulle;
+        private double _hulle;
         private int _feuerkraft;
         private string _motto;
         private string _art;
@@ -27,24 +27,58 @@ namespace OOP___StarWars.Models
 
         public override void IsHit(int dmg)
         {
+            if(_hulle < 300 && _repariert == false)
+            {
+                _repariert = true;
+                double repair = 500;
+                _hulle = _hulle + repair;
+                Console.WriteLine($"\tImperator Palpatine has repaired {this.GetInfo()} ( +{repair}HP ) from Star Destroyer!\n");
+                Console.WriteLine("\t\t\t      ,_~\"\"\"~-,   ");
+                Console.WriteLine("\t\t\t    .'(_)------`,    ");
+                Console.WriteLine("\t\t\t    |===========|    { GET SOME HP NOOB }");
+                Console.WriteLine("\t\t\t    `,---------,'   ");
+                Console.WriteLine("\t\t\t      ~-.___.-~      ");
+                Task.Delay(3000).Wait();
+            }
             _hulle = _hulle - dmg;
+            if (_hulle < 0)
+            {
+                _abgeschossen = true;
+            }
         }
-        public override int GetShielde()
-        {
-            return 0;
-        }
-        public override void Fire(Raumschiff shiff)
+
+        public override int Fire(Raumschiff shiff)
         {
             Raumschiff raumshiff = shiff;
             Random rnd2 = new Random();
             int dmg = this.GetFeuerkraft() * rnd2.Next(0, 3);
             raumshiff.IsHit(dmg);
-            Console.WriteLine($"\t{this.GetInfo()} ({Shiff()}) ({Shiff()}) firing at {shiff.GetInfo()} dealing {dmg} dmg!");
-            Console.Write($"\t{this.GetArt()}");
+            if (dmg == 0)
+            {
+                Console.Write($"\t\t\t\tMISS {raumshiff.GetArt()}");
+            }
+            else
+            {
+                Console.Write($"\t\t\t\t-{dmg}HP {raumshiff.GetArt()}");
+            }
             Console.ForegroundColor = _color;
-            Console.Write($"-------------");
+            Console.Write($" -------------");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"{shiff.GetArt()}\n\n");
+            Console.Write($"{this.GetArt()}\n\n");
+            Console.WriteLine($"\n\n\n\t\t\t{this.GetInfo()} firing at {shiff.GetInfo()} dealing {dmg} dmg!");
+            return dmg;
+        }
+
+        public override bool StillAlive()
+        {
+            if (_abgeschossen == false)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override string GetArt()
@@ -55,15 +89,18 @@ namespace OOP___StarWars.Models
         {
             return _art + " " + _callsign;
         }
-        public override int FullHP()
+        public override double FullHP()
         {
             return GetShielde() + GetHulle();
         }
-        public override int GetHulle()
+        public override double GetHulle()
         {
             return _hulle;
         }
-
+        public override double GetShielde()
+        {
+            return 0;
+        }
         public override int GetFeuerkraft()
         {
             return _feuerkraft;
@@ -113,10 +150,8 @@ namespace OOP___StarWars.Models
         public override string ToString()
         {
             string shiff = Shiff();
-            string text = $"\n\tShiff: {shiff}\n\tHülle: {_hulle}" +
-                $"\n\tFeuerkraft: {_feuerkraft}" +
-                $"\n\tCallSing: {_callsign}" +
-                $"\n\tFoto: {_art}";
+            string text = $"\t|   {shiff,15}   | {_hulle,6} | {_feuerkraft,8} " +
+                $"| {_callsign,11} |   {_art,10}  |";
             return text;
         }
     }

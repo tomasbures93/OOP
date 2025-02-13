@@ -1,5 +1,4 @@
-﻿using OOP___StarWars.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,13 +34,15 @@ namespace OOP___StarWars.Models
         }
 
         public abstract void IsHit(int dmg);
-        public abstract void Fire(Raumschiff shiff);
-        public abstract int FullHP();
-        public abstract int GetHulle();
-        public abstract int GetShielde();
+        public abstract int Fire(Raumschiff shiff);
+        public abstract double FullHP();
+        public abstract double GetHulle();
+        public abstract double GetShielde();
         public abstract int GetFeuerkraft();
         public abstract string GetInfo();
         public abstract string GetArt();
+
+        public abstract bool StillAlive();
 
     }
 }

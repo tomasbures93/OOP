@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ISchiff.cs" />
     <Compile Include="Models\Imperial.cs" />
+    <Compile Include="Models\r2einheit.cs" />
     <Compile Include="Models\Raumschiff.cs" />
     <Compile Include="Models\Rebelen.cs" />
     <Compile Include="Program.cs" />
